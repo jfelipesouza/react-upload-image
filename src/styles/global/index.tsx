@@ -5,8 +5,7 @@ const GlobalStyle = createGlobalStyle`
     margin:0;
     padding: 0;
     box-sizing: border-box;
-  
-    
+    outline:0;
   }
   :root{
     font-size: 16px;
@@ -17,9 +16,14 @@ const GlobalStyle = createGlobalStyle`
   body{
     font-family: 'Roboto',sans-serif;
     font-size: ${({ theme }) => theme.fontSize.text};
-    background-color:  ${({ theme }) => theme.colors.background};
+    background-image: linear-gradient(to right,${({ theme }) =>
+      theme.colors.primary}, ${({ theme }) => theme.colors.background});
     overflow-x: hidden;
     transition: background-color 0.4s linear;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+
   }
   body::-webkit-scrollbar {
     width: 5px;
